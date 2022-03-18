@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private float FollowSpeed;
+
+    private Vector3 offset;
+    private Vector3 target;
+
+    private void Awake()
     {
-        
+        offset = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+
+    }
+
+    private void FixedUpdate()
+    {
+        target = GameManager.Instance.PlayerPosition + offset;
+        transform.position = Vector3.Lerp(transform.position, target, FollowSpeed * Time.deltaTime);
     }
 }

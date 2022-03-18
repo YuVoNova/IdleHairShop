@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,10 +7,23 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
 
+    // Objects & Components
+
+    [SerializeField]
+    private Player Player;
+
+
     // Values
 
+
+
+    [HideInInspector]
+    public Vector3 PlayerPosition;
+    [HideInInspector]
     public bool IsGameOn;
 
+
+    // Unity Functions
 
     private void Awake()
     {
@@ -30,12 +41,22 @@ public class GameManager : MonoBehaviour
         // TEST
     }
 
+    private void FixedUpdate()
+    {
+        PlayerPosition = Player.transform.position;
+    }
+
+
+
+
+    // Methods
+
     private void StartGame()
     {
         IsGameOn = true;
 
         // TEST
-        
+
 
 
         // TEST

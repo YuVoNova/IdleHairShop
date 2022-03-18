@@ -392,6 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f541570cf54ffc4e9f4eecce7f94f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FollowSpeed: 7.5
 --- !u!1 &416566170
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +406,7 @@ GameObject:
   - component: {fileID: 416566172}
   - component: {fileID: 416566175}
   - component: {fileID: 416566174}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -708,7 +709,7 @@ GameObject:
   - component: {fileID: 779920553}
   - component: {fileID: 779920556}
   - component: {fileID: 779920555}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,6 +822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44c42e888b13f845ab0535248e8f72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 416566173}
+  PlayerPosition: {x: 0, y: 0, z: 0}
   IsGameOn: 0
 --- !u!1 &1063663076
 GameObject:
@@ -1067,7 +1070,7 @@ GameObject:
   - component: {fileID: 1458657741}
   - component: {fileID: 1458657744}
   - component: {fileID: 1458657743}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
