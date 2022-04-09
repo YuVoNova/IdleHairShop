@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     // Values
 
+    [SerializeField]
+    private float InteractionDuration;
 
 
 
@@ -38,7 +40,15 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.layer == 8)    // Interactable
         {
-            // TO DO -> Interact here.
+            other.GetComponent<Interactable>().StartInteraction(InteractionDuration);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 8)    // Interactable
+        {
+            other.GetComponent<Interactable>().ExitInteraction();
         }
     }
 

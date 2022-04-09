@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
 
     private Touch touch;
 
-    private bool clickFlag;
-    private bool hasGameStarted;
-    private bool isJoystickActive;
+    public bool clickFlag;
+    public bool hasGameStarted;
+    public bool isJoystickActive;
 
     private Vector2 delta;
     private Vector2 clickCenter;
