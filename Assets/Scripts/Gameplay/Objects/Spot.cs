@@ -8,7 +8,7 @@ public class Spot : MonoBehaviour
     [HideInInspector]
     public GameObject OccupiedBy;
 
-    public AITypes OccupiedType;
+    public SpotTypes SpotType;
 
 
 }

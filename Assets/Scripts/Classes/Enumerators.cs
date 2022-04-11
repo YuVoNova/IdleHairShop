@@ -5,11 +5,10 @@ public class Enumerators
     
 }
 
-public enum AITypes
+public enum SpotTypes
 {
-    Customer,
-    Employee,
-    Player
+    Waiting,
+    Service
 }
 
 public enum EmployeeStates

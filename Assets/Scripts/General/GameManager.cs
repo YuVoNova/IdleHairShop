@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +14,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Player Player;
 
+    private GameObject[] BarberChairs;
+
+    [SerializeField]
+    private List<Spot> EmptyWaitingSpots;
+    private List<Spot> OccupiedWaitingSpots;
+
+    [SerializeField]
+    private List<Spot> EmptyServiceSeats;
+    private List<Spot> OccupiedServiceSeats;
+
+    private List<Customer> Customers;
+    
 
     // Values
 
@@ -28,6 +42,10 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        BarberChairs = GameObject.FindGameObjectsWithTag("BarberChair");
+
+        // TO DO -> Take CustomerSeats from PlayerData and initialize accordingly.
 
 
     }
