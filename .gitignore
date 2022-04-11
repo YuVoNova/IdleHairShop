@@ -71,7 +71,7 @@ Logs/AssetImportWorker0.log
 Logs/shadercompiler-UnityShaderCompiler.exe0.log
 Logs/shadercompiler-UnityShaderCompiler.exe0.log
 Assembly-CSharp.csproj
-Assembly-CSharp.csproj
-Logs/shadercompiler-UnityShaderCompiler.exe0.log
+Logs/AssetImportWorker0.log
 Logs/shadercompiler-AssetImportWorker0.log
-Assets/Scenes/Test.unity
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
+Assembly-CSharp.csproj
