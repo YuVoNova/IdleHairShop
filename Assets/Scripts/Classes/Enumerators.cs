@@ -8,7 +8,8 @@ public class Enumerators
 public enum AITypes
 {
     Customer,
-    Employee
+    Employee,
+    Player
 }
 
 public enum EmployeeStates
