@@ -32,6 +32,7 @@ Transform:
   - {fileID: 4203045518177710464}
   - {fileID: 8962364247898665408}
   - {fileID: 2723649067255638348}
+  - {fileID: 697751242314816869}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -129,7 +130,51 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.9000003, y: 3, z: 0.62}
-  m_Center: {x: -4.07, y: 1.5, z: 0.17}
+  m_Center: {x: -4.1, y: 1.5, z: 0.17}
+--- !u!1 &6698906043623393508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 697751242314816869}
+  - component: {fileID: 3058896989690809578}
+  m_Layer: 10
+  m_Name: PlayerWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &697751242314816869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6698906043623393508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4464652538348632}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3058896989690809578
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6698906043623393508}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 3, z: 1}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &7389989660022649146
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +187,7 @@ GameObject:
   - component: {fileID: 1752759634204398230}
   - component: {fileID: 9099359028811421363}
   m_Layer: 0
-  m_Name: SM_Bld_ShopFront_04_Glass
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,4 +299,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.8900001, y: 3, z: 0.62}
-  m_Center: {x: -0.95, y: 1.5, z: 0.17}
+  m_Center: {x: -0.9, y: 1.5, z: 0.17}

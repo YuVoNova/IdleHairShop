@@ -8,6 +8,8 @@ public class Interactable : MonoBehaviour
 
     private float interactionTimer;
 
+    public InteractionTypes InteractionType;
+
     protected virtual void Awake()
     {
         interactionCollider = GetComponent<Collider>();
@@ -19,17 +21,22 @@ public class Interactable : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (interactionTimer > 0f)
+        if (InteractionType == InteractionTypes.OneTime)
         {
-            interactionTimer -= Time.deltaTime;
-
-            if (interactionTimer <= 0f)
+            if (interactionTimer > 0f)
             {
-                Interacted();
+                interactionTimer -= Time.deltaTime;
+
+                if (interactionTimer <= 0f)
+                {
+                    Interacted();
+                }
             }
         }
-
-
+        else if (InteractionType == InteractionTypes.Progress)
+        {
+            // TO DO -> Make a progress-wise interaction hold sequence.
+        }
     }
 
     public virtual void StartInteraction(float duration)

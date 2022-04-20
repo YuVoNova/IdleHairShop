@@ -11,6 +11,12 @@ public enum SpotTypes
     Service
 }
 
+public enum InteractionTypes
+{
+    OneTime,
+    Progress
+}
+
 public enum EmployeeStates
 {
     Waiting,
@@ -27,7 +33,6 @@ public enum CustomerStates
     Walking_WaitingSpot,
     Walking_Service,
     Waiting_Service,
-    Service_Haircut,
-    Service_Washing,
-    Payment
+    Waiting_WaitingSpot,
+    Service
 }

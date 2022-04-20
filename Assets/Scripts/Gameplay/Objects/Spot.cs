@@ -5,7 +5,7 @@ public class Spot : MonoBehaviour
     [HideInInspector]
     public bool IsOccupied;
 
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject OccupiedBy;
 
     public SpotTypes SpotType;
