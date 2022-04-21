@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerData
 {
-    public int Coins;
+    public int Money;
 
     public PlayerData()
     {
-        Coins = 0;
+        Money = 0;
     }
 }

@@ -2060,7 +2060,7 @@ MonoBehaviour:
   - {fileID: 1464857058}
   CustomerPrefab: {fileID: 8724305451557106286, guid: 38c9b60832b22a54ea9715dfb2bc719b, type: 3}
   CustomersParent: {fileID: 1869494030}
-  customerSpawnDuration: 2
+  customerSpawnDuration: 4
   PlayerPosition: {x: 0, y: 0, z: 0}
   IsGameOn: 0
 --- !u!1 &795955095

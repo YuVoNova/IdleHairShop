@@ -140,7 +140,7 @@ public class Manager : MonoBehaviour
         }
         else
         {
-            PlayerData.Coins = 0;
+            PlayerData.Money = 0;
 
             File.Create(dataPath).Close();
 
@@ -151,7 +151,7 @@ public class Manager : MonoBehaviour
     // Saves progress data.
     private void SerializeData()
     {
-        jsonData.Coins = PlayerData.Coins;
+        jsonData.Money = PlayerData.Money;
 
         string jsonDataString = JsonUtility.ToJson(jsonData, true);
 
@@ -165,7 +165,7 @@ public class Manager : MonoBehaviour
 
         jsonData = JsonUtility.FromJson<JsonData>(jsonDataString);
 
-        PlayerData.Coins = jsonData.Coins;
+        PlayerData.Money = jsonData.Money;
     }
 
     #endregion
@@ -173,10 +173,10 @@ public class Manager : MonoBehaviour
 
 public class JsonData
 {
-    public int Coins;
+    public int Money;
 
     public JsonData()
     {
-        Coins = 0;
+        Money = 0;
     }
 }
