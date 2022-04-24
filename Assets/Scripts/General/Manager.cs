@@ -140,7 +140,7 @@ public class Manager : MonoBehaviour
         }
         else
         {
-            PlayerData.Money = 0;
+            // TO DO -> Default levels here.
 
             File.Create(dataPath).Close();
 

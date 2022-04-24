@@ -122,8 +122,6 @@ public class GameManager : MonoBehaviour
 
     private void InitializeBarberChairs()
     {
-        // TO DO -> Take ServiceSeats from PlayerData and initialize accordingly.
-
         BarberChairs = new List<BarberChair>();
         foreach (Transform child in BarberChairsTransform)
         {
