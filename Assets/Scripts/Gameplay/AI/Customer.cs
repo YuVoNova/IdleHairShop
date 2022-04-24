@@ -20,6 +20,18 @@ public class Customer : MonoBehaviour
 
     private Vector3 destinationPoint;
 
+    //----------- Ogulcan Animator Denemesi ---------------
+    [SerializeField]
+    private Animator customerAnimator;
+
+    [SerializeField]
+    private GameObject GoodHair;
+
+    [SerializeField]
+    private GameObject BadHair;
+    //----------- Ogulcan Animator Denemesi ---------------
+
+
     private void Awake()
     {
         CurrentState = CustomerStates.Walking_Intro;
@@ -30,6 +42,8 @@ public class Customer : MonoBehaviour
         switch (CurrentState)
         {
             case CustomerStates.Walking_Intro:
+
+               
 
                 if (Vector3.Distance(transform.position, destinationPoint) < StopDistance)
                 {
@@ -51,6 +65,12 @@ public class Customer : MonoBehaviour
                 {
                     CurrentState = CustomerStates.Waiting_WaitingSpot;
 
+                    //----------- Ogulcan Animator Denemesi ---------------
+
+                    customerAnimator.SetBool("isRunning", false);
+
+                    //----------- Ogulcan Animator Denemesi ---------------
+
                     agent.enabled = false;
                     transform.position = destinationPoint;
                     transform.eulerAngles = new Vector3(0f, 135f, 0f);
@@ -69,6 +89,13 @@ public class Customer : MonoBehaviour
                 if (Vector3.Distance(transform.position, destinationPoint) < StopDistance)
                 {
                     // TO DO -> Set customer's position and trigger sitting animation here.
+
+                    //----------- Ogulcan Animator Denemesi ---------------
+
+                    customerAnimator.SetBool("isRunning", false);
+                    customerAnimator.SetBool("isSitting", true);
+
+                    //----------- Ogulcan Animator Denemesi ---------------
 
                     agent.enabled = false;
                     transform.position = currentOccupiedSpot.transform.parent.GetComponent<BarberChair>().SittingPoint.position;
@@ -140,6 +167,12 @@ public class Customer : MonoBehaviour
         {
             GameManager.Instance.LeftWaitingSpot(currentOccupiedSpot);
 
+            //----------- Ogulcan Animator Denemesi ---------------
+
+            customerAnimator.SetBool("isRunning", true);
+
+            //----------- Ogulcan Animator Denemesi ---------------
+
             if (!agent.enabled)
             {
                 agent.enabled = true;
@@ -166,6 +199,15 @@ public class Customer : MonoBehaviour
         // TO DO -> Scatter money.
         // TO DO -> Change character.
         // TO DO -> Trigger Walk animation here.
+        //----------- Ogulcan Animator Denemesi ---------------
+
+        BadHair.SetActive(false);
+        GoodHair.SetActive(true);
+
+        customerAnimator.SetBool("isSitting", false);
+        customerAnimator.SetBool("isRunning", true);
+
+        //----------- Ogulcan Animator Denemesi ---------------
 
         destinationPoint = GameManager.Instance.OutroPoint.position;
         agent.SetDestination(destinationPoint);

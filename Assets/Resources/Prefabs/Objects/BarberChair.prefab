@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896766335283837525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 1, z: 0}
+  m_LocalPosition: {x: 0.6, y: 0.95, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8658260443307642299}
@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 8658260443307642299}
   - component: {fileID: 2176479188457739822}
   - component: {fileID: 6441026927747564229}
+  - component: {fileID: 4133832767097952015}
   m_Layer: 0
   m_Name: BarberChair
   m_TagString: Untagged
@@ -340,6 +341,22 @@ MonoBehaviour:
   InteractableService: {fileID: 8418010221428586715, guid: f9d5a4c3dae9d2549abdf6cf181bae4f, type: 3}
   Employee: {fileID: 8290591465982398143}
   SittingPoint: {fileID: 5609025282073783669}
+--- !u!114 &4133832767097952015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658260443307642296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &8659312527443574778
 GameObject:
   m_ObjectHideFlags: 0
