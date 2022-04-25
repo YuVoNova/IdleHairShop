@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Player Player;
+
+    [SerializeField]
+    private NavMeshSurface NavMeshSurface;
 
     [SerializeField]
     private Transform SpawnPoint;
@@ -71,6 +75,8 @@ public class GameManager : MonoBehaviour
         OccupiedWaitingSpots = new List<int>();
 
         InitializeBarberChairs();
+
+        NavMeshSurface.BuildNavMesh();
 
         Customers = new List<Customer>();
 
@@ -131,11 +137,7 @@ public class GameManager : MonoBehaviour
         EmptyServiceSeats = new List<int>();
         for (int i = 0; i < BarberChairs.Count; i++)
         {
-            // TEST
-            BarberChairs[i].InitializeBarberChair(BarberChairs[i].CurrentLevel);
-            // TEST
-
-            // TO DO -> Initialize chairs according to their level here.
+            BarberChairs[i].InitializeBarberChair(Manager.Instance.PlayerData.BarberChairLevels[i]);
 
             if (BarberChairs[i].CurrentLevel > 1)
             {
@@ -204,8 +206,6 @@ public class GameManager : MonoBehaviour
             EmptyWaitingSpots.Add(id);
 
             WaitingSpots[id].OccupiedBy = null;
-
-            // TO DO -> Set GameManager to spawn new customer.
         }
         else
         {

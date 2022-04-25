@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     private float MovementSpeed;
 
 
-
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -40,6 +39,8 @@ public class PlayerController : MonoBehaviour
         clickFlag = false;
         hasGameStarted = false;
         isJoystickActive = false;
+
+        SetWalkSpeed();
     }
 
     private void Update()
@@ -131,5 +132,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+    public void SetWalkSpeed()
+    {
+        MovementSpeed = Manager.Instance.Upgrades.PlayerWalkSpeed[Manager.Instance.PlayerData.PlayerWalkSpeedLevel].Value;
+    }
 }

@@ -76,6 +76,16 @@ public class BarberChair : MonoBehaviour
 
         GameManager.Instance.LeftServiceSeat(ID);
     }
+
+    public void LeveledUpEmployeeServiceDuration()
+    {
+        Employee.SetDuration();
+    }
+
+    public void UnlockedEmployeeCollectsMoney()
+    {
+        Employee.CollectMoneyEnabled();
+    }
 }
 
 /*

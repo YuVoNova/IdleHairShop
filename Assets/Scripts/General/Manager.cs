@@ -35,6 +35,7 @@ public class Manager : MonoBehaviour
 
     // Game Data
 
+    public Upgrades Upgrades;
 
 
     // Levels
@@ -43,7 +44,6 @@ public class Manager : MonoBehaviour
 
     // Data Handling
 
-    private JsonData jsonData;
     private string dataPath;
 
 
@@ -130,17 +130,18 @@ public class Manager : MonoBehaviour
     private void InitializePlayerData()
     {
         PlayerData = new PlayerData();
-        jsonData = new JsonData();
 
-        dataPath = Path.Combine(Application.persistentDataPath, "HyperSurvivorSave.json");
+        dataPath = Path.Combine(Application.persistentDataPath, "HairShop.json");
 
         if (File.Exists(dataPath))
         {
+            Debug.Log("File exists, loading.");
+
             DeserializeData();
         }
         else
         {
-            // TO DO -> Default levels here.
+            Debug.Log("File doesn't exist, creating new.");
 
             File.Create(dataPath).Close();
 
@@ -151,9 +152,9 @@ public class Manager : MonoBehaviour
     // Saves progress data.
     private void SerializeData()
     {
-        jsonData.Money = PlayerData.Money;
+        //jsonData.Money = PlayerData.Money;
 
-        string jsonDataString = JsonUtility.ToJson(jsonData, true);
+        string jsonDataString = JsonUtility.ToJson(PlayerData, true);
 
         File.WriteAllText(dataPath, jsonDataString);
     }
@@ -163,20 +164,10 @@ public class Manager : MonoBehaviour
     {
         string jsonDataString = File.ReadAllText(dataPath);
 
-        jsonData = JsonUtility.FromJson<JsonData>(jsonDataString);
+        PlayerData = JsonUtility.FromJson<PlayerData>(jsonDataString);
 
-        PlayerData.Money = jsonData.Money;
+        //PlayerData.Money = jsonData.Money;
     }
 
     #endregion
-}
-
-public class JsonData
-{
-    public int Money;
-
-    public JsonData()
-    {
-        Money = 0;
-    }
 }
