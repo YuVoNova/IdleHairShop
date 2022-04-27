@@ -48,6 +48,13 @@ public class Employee : MonoBehaviour
             {
                 EmployedChair.ServiceCompleted();
 
+                //----------- Ogulcan Animator Denemesi ---------------
+
+                employeeAnimator.SetBool("isWorking", false);
+
+                //----------- Ogulcan Animator Denemesi ---------------
+
+
                 isServiceOn = false;
             }
             else
