@@ -43,8 +43,6 @@ public class Customer : MonoBehaviour
         {
             case CustomerStates.Walking_Intro:
 
-               
-
                 if (Vector3.Distance(transform.position, destinationPoint) < StopDistance)
                 {
                     if (currentOccupiedSpot.SpotType == SpotTypes.Waiting)
@@ -147,6 +145,11 @@ public class Customer : MonoBehaviour
 
     private void GoToEmptyServiceSeat()
     {
+        if (!agent.enabled)
+        {
+            agent.enabled = true;
+        }
+
         destinationPoint = currentOccupiedSpot.transform.position;
         agent.SetDestination(destinationPoint);
 
@@ -163,7 +166,7 @@ public class Customer : MonoBehaviour
 
     public void SetCustomerForService(Spot spot)
     {
-        if (CurrentState == CustomerStates.Waiting_WaitingSpot || CurrentState == CustomerStates.Walking_WaitingSpot)
+        if (CurrentState == CustomerStates.Walking_Intro || CurrentState == CustomerStates.Waiting_WaitingSpot || CurrentState == CustomerStates.Walking_WaitingSpot)
         {
             GameManager.Instance.LeftWaitingSpot(currentOccupiedSpot);
 
@@ -172,11 +175,6 @@ public class Customer : MonoBehaviour
             customerAnimator.SetBool("isRunning", true);
 
             //----------- Ogulcan Animator Denemesi ---------------
-
-            if (!agent.enabled)
-            {
-                agent.enabled = true;
-            }
         }
 
         currentOccupiedSpot = spot;
@@ -197,8 +195,6 @@ public class Customer : MonoBehaviour
         agent.enabled = true;
 
         // TO DO -> Scatter money.
-        // TO DO -> Change character.
-        // TO DO -> Trigger Walk animation here.
         //----------- Ogulcan Animator Denemesi ---------------
 
         BadHair.SetActive(false);

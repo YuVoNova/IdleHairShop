@@ -223,21 +223,20 @@ public class GameManager : MonoBehaviour
                 Customers.Remove(BarberChairs[id].ServiceSpot.OccupiedBy.GetComponent<Customer>());
             }
 
-            OccupiedServiceSeats.Remove(id);
-            EmptyServiceSeats.Add(id);
-
-            BarberChairs[id].ServiceSpot.OccupiedBy = null;
-
             if (OccupiedWaitingSpots.Count > 0)
             {
-                EmptyServiceSeats.Remove(id);
-                OccupiedServiceSeats.Add(id);
-
                 int sendCustomerID = Customers.IndexOf(WaitingSpots[OccupiedWaitingSpots[0]].OccupiedBy.GetComponent<Customer>());
 
                 BarberChairs[id].ServiceSpot.OccupiedBy = Customers[sendCustomerID].gameObject;
 
                 Customers[sendCustomerID].SetCustomerForService(BarberChairs[id].ServiceSpot);
+            }
+            else
+            {
+                OccupiedServiceSeats.Remove(id);
+                EmptyServiceSeats.Add(id);
+
+                BarberChairs[id].ServiceSpot.OccupiedBy = null;
             }
         }
         else

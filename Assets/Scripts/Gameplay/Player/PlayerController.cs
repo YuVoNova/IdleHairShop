@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private Touch touch;
 
     public bool clickFlag;
-    public bool hasGameStarted;
     public bool isJoystickActive;
 
     private Vector2 delta;
@@ -37,7 +36,6 @@ public class PlayerController : MonoBehaviour
         targetDirection = Vector3.zero;
 
         clickFlag = false;
-        hasGameStarted = false;
         isJoystickActive = false;
 
         SetWalkSpeed();
@@ -45,70 +43,55 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (hasGameStarted)
-        {
-            if (GameManager.Instance.IsGameOn)
-            {
-                if (Input.touches.Length > 0)
-                {
-                    touch = Input.touches[0];
-                    delta = touch.deltaPosition;
-
-                    if (touch.phase == TouchPhase.Began)
-                    {
-                        clickFlag = true;
-                        isJoystickActive = false;
-                    }
-                    else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
-                    {
-                        if (clickFlag)
-                        {
-                            clickCenter = touch.position;
-
-                            clickFlag = false;
-                            isJoystickActive = true;
-
-                            // TO DO -> Enable walk animation here.
-                        }
-
-                        if (delta.magnitude > clickTreshold)
-                        {
-                            direction2D = touch.position - clickCenter;
-                            direction = new Vector3(direction2D.x, 0.0f, direction2D.y);
-                            direction = Vector3.Normalize(direction);
-                        }
-                    }
-                    else if (touch.phase == TouchPhase.Ended)
-                    {
-                        if (delta.magnitude < clickTreshold && clickFlag)
-                        {
-                            Click(touch);
-                        }
-
-                        clickFlag = false;
-                        isJoystickActive = false;
-
-                        // TO DO -> Disable walk animation here.
-                    }
-                }
-                else
-                {
-                    // TO DO -> Disable walk animation here.
-
-                    direction = transform.forward;
-                }
-            }
-        }
-        else
+        if (GameManager.Instance.IsGameOn)
         {
             if (Input.touches.Length > 0)
             {
-                if (Input.touches[0].phase == TouchPhase.Began)
-                {
-                    hasGameStarted = true;
+                touch = Input.touches[0];
+                delta = touch.deltaPosition;
 
-                    // TO DO -> Implement "Tap to Play" here.
+                if (touch.phase == TouchPhase.Began)
+                {
+                    clickFlag = true;
+                    isJoystickActive = false;
                 }
+                else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+                {
+                    if (clickFlag)
+                    {
+                        clickCenter = touch.position;
+
+                        clickFlag = false;
+                        isJoystickActive = true;
+
+                        // TO DO -> Enable walk animation here.
+                    }
+
+                    if (delta.magnitude > clickTreshold)
+                    {
+                        direction2D = touch.position - clickCenter;
+                        direction = new Vector3(direction2D.x, 0.0f, direction2D.y);
+                        direction = Vector3.Normalize(direction);
+                    }
+                }
+                else if (touch.phase == TouchPhase.Ended)
+                {
+                    if (delta.magnitude < clickTreshold && clickFlag)
+                    {
+                        Click(touch);
+                    }
+
+                    clickFlag = false;
+                    isJoystickActive = false;
+
+                    // TO DO -> Disable walk animation here.
+                }
+            }
+            else
+            {
+                // TO DO -> Disable walk animation here.
+
+                direction = transform.forward;
             }
         }
     }

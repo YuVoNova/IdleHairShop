@@ -8,6 +8,9 @@ public class Employee : MonoBehaviour
     private BarberChair EmployedChair;
 
     [SerializeField]
+    private Transform ModelTransform;
+
+    [SerializeField]
     private GameObject MagnetArea;
 
     [SerializeField]
@@ -54,6 +57,7 @@ public class Employee : MonoBehaviour
 
                 //----------- Ogulcan Animator Denemesi ---------------
 
+                ModelTransform.localEulerAngles = Vector3.zero;
 
                 isServiceOn = false;
             }
@@ -73,6 +77,8 @@ public class Employee : MonoBehaviour
         employeeAnimator.SetBool("isWorking", true);
 
         //----------- Ogulcan Animator Denemesi ---------------
+
+        ModelTransform.localEulerAngles = new Vector3(0f, 90f, 0f);
 
         serviceTimer = ServiceDuration;
 

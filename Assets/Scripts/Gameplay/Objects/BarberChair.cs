@@ -72,6 +72,11 @@ public class BarberChair : MonoBehaviour
 
     public void ServiceCompleted()
     {
+        if (CurrentLevel == 2)
+        {
+            InteractableService.SetActive(false);
+        }
+
         ServiceSpot.OccupiedBy.GetComponent<Customer>().ServiceCompleted();
 
         GameManager.Instance.LeftServiceSeat(ID);
