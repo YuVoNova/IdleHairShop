@@ -13,6 +13,13 @@ public class Employee : MonoBehaviour
     [SerializeField]
     private float ServiceDuration;
 
+    //----------- Ogulcan Animator Denemesi ---------------
+
+    [SerializeField]
+    private Animator employeeAnimator;
+
+    //----------- Ogulcan Animator Denemesi ---------------
+
     private float serviceTimer;
 
     private bool isServiceOn;
@@ -53,6 +60,12 @@ public class Employee : MonoBehaviour
     public void ServeCustomer()
     {
         // TO DO -> Trigger Employee animation, VFX, and SFX here.
+
+        //----------- Ogulcan Animator Denemesi ---------------
+
+        employeeAnimator.SetBool("isWorking", true);
+
+        //----------- Ogulcan Animator Denemesi ---------------
 
         serviceTimer = ServiceDuration;
 

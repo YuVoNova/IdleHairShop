@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2238374031947134812}
   - component: {fileID: 2238374031947134786}
   - component: {fileID: 509687878084283177}
+  - component: {fileID: 5630940453805564399}
   m_Layer: 6
   m_Name: Employee
   m_TagString: Employee
@@ -50,6 +51,7 @@ MonoBehaviour:
   EmployedChair: {fileID: 0}
   MagnetArea: {fileID: 7610412082363349218}
   ServiceDuration: 3
+  employeeAnimator: {fileID: 5630940453805564399}
 --- !u!65 &2238374031947134786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79,6 +81,25 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 1
   m_AffectedAgents: ffffffff
+--- !u!95 &5630940453805564399
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238374031947134787}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 3c75411a5d5abd94bb008b03435ccd44, type: 3}
+  m_Controller: {fileID: 9100000, guid: 937c6b8f13040da4ea8fcd5502ab33b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1325015980621586951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,7 +167,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7781663245050207007, guid: 064cb44383db92746883a60545c8f19e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 937c6b8f13040da4ea8fcd5502ab33b2, type: 2}
+    m_RemovedComponents:
+    - {fileID: 7781663245050207007, guid: 064cb44383db92746883a60545c8f19e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 064cb44383db92746883a60545c8f19e, type: 3}
 --- !u!4 &3421977779916890978 stripped
 Transform:
