@@ -13,7 +13,6 @@ public class Employee : MonoBehaviour
     [SerializeField]
     private GameObject MagnetArea;
 
-    [SerializeField]
     private float ServiceDuration;
 
     //----------- Ogulcan Animator Denemesi ---------------
