@@ -6,6 +6,11 @@ public class BarberChair : MonoBehaviour
 {
     public int ID;
 
+    [SerializeField]
+    private int Price;
+    [SerializeField]
+    private int PriceStep;
+
     public Spot ServiceSpot;
 
     [SerializeField]
@@ -16,6 +21,9 @@ public class BarberChair : MonoBehaviour
 
     [SerializeField]
     private GameObject InteractableService;
+
+    [SerializeField]
+    private InteractableBuyChair InteractableBuyChair;
 
     [SerializeField]
     private Employee Employee;
@@ -31,7 +39,7 @@ public class BarberChair : MonoBehaviour
         }
         else if (CurrentLevel == 1)
         {
-
+            InteractableBuyChair.Initialize(Price, PriceStep);
         }
         else if (CurrentLevel == 2)
         {
