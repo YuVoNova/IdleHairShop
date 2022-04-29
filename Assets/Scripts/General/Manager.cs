@@ -118,6 +118,11 @@ public class Manager : MonoBehaviour
         // TO DO -> Initialize PlayerData here.
     }
 
+    public void OnDestroy()
+    {
+        Save();
+    }
+
     public void Save()
     {
         SerializeData();
@@ -152,8 +157,6 @@ public class Manager : MonoBehaviour
     // Saves progress data.
     private void SerializeData()
     {
-        //jsonData.Money = PlayerData.Money;
-
         string jsonDataString = JsonUtility.ToJson(PlayerData, true);
 
         File.WriteAllText(dataPath, jsonDataString);
@@ -165,8 +168,6 @@ public class Manager : MonoBehaviour
         string jsonDataString = File.ReadAllText(dataPath);
 
         PlayerData = JsonUtility.FromJson<PlayerData>(jsonDataString);
-
-        //PlayerData.Money = jsonData.Money;
     }
 
     #endregion

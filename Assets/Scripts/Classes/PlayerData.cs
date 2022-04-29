@@ -11,6 +11,7 @@ public class PlayerData
 
     public int PlayerWalkSpeedLevel;
     public int PlayerServiceDurationLevel;
+    public int PlayerMoneyMultiplierLevel;
     public int EmployeeServiceDurationLevel;
     public bool EmployeeCollectsMoney;
 
@@ -30,6 +31,7 @@ public class PlayerData
 
         PlayerWalkSpeedLevel = 0;
         PlayerServiceDurationLevel = 0;
+        PlayerMoneyMultiplierLevel = 0;
         EmployeeServiceDurationLevel = 0;
         EmployeeCollectsMoney = false;
     }

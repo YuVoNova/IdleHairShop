@@ -7,6 +7,7 @@ public class Upgrades : ScriptableObject
 {
     public List<Upgrade> PlayerWalkSpeed;
     public List<Upgrade> PlayerServiceDuration;
+    public List<Upgrade> PlayerMoneyMultiplier;
     public List<Upgrade> EmployeeServiceDuration;
     public Upgrade EmployeeCollectsMoney;
 

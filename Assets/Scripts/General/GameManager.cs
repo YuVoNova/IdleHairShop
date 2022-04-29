@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
 
     // Values
 
+    [HideInInspector]
+    public float MoneyMultiplier;
+
     private int activeSpotCount;
 
     [SerializeField]
@@ -85,6 +88,8 @@ public class GameManager : MonoBehaviour
         customerSpawnTimer = 0f;
 
         customerID = 0;
+
+        SetMoneyMultiplier();
     }
 
     private void Start()
@@ -244,5 +249,10 @@ public class GameManager : MonoBehaviour
             // ERROR
             Debug.LogError("ERROR: No such occupied BarberChair was found.");
         }
+    }
+
+    public void SetMoneyMultiplier()
+    {
+        MoneyMultiplier = Manager.Instance.Upgrades.PlayerMoneyMultiplier[Manager.Instance.PlayerData.PlayerMoneyMultiplierLevel].Value;
     }
 }
