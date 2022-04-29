@@ -40,6 +40,10 @@ public class Employee : MonoBehaviour
         {
             MagnetArea.SetActive(true);
         }
+        else
+        {
+            MagnetArea.SetActive(false);
+        }
     }
 
     private void Update()
@@ -56,7 +60,7 @@ public class Employee : MonoBehaviour
 
                 //----------- Ogulcan Animator Denemesi ---------------
 
-                ModelTransform.localEulerAngles = Vector3.zero;
+                ModelTransform.localEulerAngles = new Vector3(0f, 180f, 0f);
 
                 isServiceOn = false;
             }
@@ -77,7 +81,7 @@ public class Employee : MonoBehaviour
 
         //----------- Ogulcan Animator Denemesi ---------------
 
-        ModelTransform.localEulerAngles = new Vector3(0f, 90f, 0f);
+        ModelTransform.localEulerAngles = new Vector3(0f, -90f, 0f);
 
         serviceTimer = ServiceDuration;
 

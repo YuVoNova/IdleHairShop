@@ -278,7 +278,7 @@ Transform:
   - {fileID: 529900510}
   - {fileID: 63412943}
   m_Father: {fileID: 1598387321}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &89812814
 PrefabInstance:
@@ -2312,6 +2312,8 @@ MonoBehaviour:
   - {fileID: 1464857058}
   CustomerPrefab: {fileID: 8724305451557106286, guid: 38c9b60832b22a54ea9715dfb2bc719b, type: 3}
   CustomersParent: {fileID: 1869494030}
+  MoneyMultiplier: 0
+  CustomerYieldAmount: 20
   customerSpawnDuration: 4
   PlayerPosition: {x: 0, y: 0, z: 0}
   IsGameOn: 0
@@ -3621,7 +3623,6 @@ Transform:
   - {fileID: 140231408}
   - {fileID: 1249204164}
   - {fileID: 575408044}
-  - {fileID: 1984971690}
   - {fileID: 83438554}
   - {fileID: 1626161302}
   m_Father: {fileID: 0}
@@ -3659,7 +3660,7 @@ Transform:
   - {fileID: 1925178408}
   - {fileID: 546095992}
   m_Father: {fileID: 1598387321}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1626161303
 BoxCollider:
@@ -4492,7 +4493,7 @@ GameObject:
   - component: {fileID: 1984971693}
   - component: {fileID: 1984971692}
   - component: {fileID: 1984971691}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4506,12 +4507,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984971689}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.05, z: 0}
   m_LocalScale: {x: 23, y: 0.1, z: 35}
   m_Children: []
-  m_Father: {fileID: 1598387321}
-  m_RootOrder: 3
+  m_Father: {fileID: 2016667739}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1984971691
 BoxCollider:
@@ -4671,7 +4672,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1984971690}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

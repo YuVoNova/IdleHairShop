@@ -58,8 +58,6 @@ public class Money : MonoBehaviour
 
     public void Magnetize(Vector3 position, bool isPlayer)
     {
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-
         isMagnetized = true;
         this.isPlayer = isPlayer;
         target = position;

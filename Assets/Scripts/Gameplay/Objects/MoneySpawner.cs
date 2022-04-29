@@ -4,6 +4,8 @@ public class MoneySpawner : MonoBehaviour
 {
     [SerializeField]
     private Transform SpawnPosition;
+    [SerializeField]
+    private GameObject MoneyVFX;
 
     [SerializeField]
     private int FixedSpawnAmount;
@@ -22,12 +24,17 @@ public class MoneySpawner : MonoBehaviour
 
     private void Awake()
     {
-        upForce = 5f;
-        sideForce = 0.8f;
+        MoneyVFX.SetActive(false);
+
+        upForce = 2.5f;
+        sideForce = 0.5f;
     }
 
     public void SpawnMoney(int amount)
     {
+        MoneyVFX.SetActive(false);
+        MoneyVFX.SetActive(true);
+
         if (amount % AmountModifier == 0)
         {
             spawnAmount = FixedSpawnAmount;
@@ -45,6 +52,14 @@ public class MoneySpawner : MonoBehaviour
             spawnForce.x = Random.Range(-sideForce, sideForce);
             spawnForce.y = Random.Range(upForce / 2f, upForce);
             spawnForce.z = Random.Range(-sideForce, sideForce);
+
+            if (spawnForce.x > 0) spawnForce.x += sideForce;
+            else spawnForce.x -= sideForce;
+
+            if (spawnForce.z > 0) spawnForce.z += sideForce;
+            else spawnForce.z -= sideForce;
+
+            Debug.Log(spawnForce);
 
             spawnedMoney = Instantiate(Manager.Instance.MoneyPrefab, SpawnPosition.position, Random.rotation);
             spawnedMoney.GetComponent<Rigidbody>().velocity = spawnForce;
