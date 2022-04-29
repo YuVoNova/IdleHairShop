@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Magnet : MonoBehaviour
 {
+    [SerializeField]
+    private bool IsPlayer;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 9)
         {
-            // TO DO -> Magnetize the collectible to parent transform.
+            other.GetComponent<Money>().Magnetize(transform.parent.position, IsPlayer);
         }
     }
 }

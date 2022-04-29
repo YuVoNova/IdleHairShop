@@ -35,5 +35,4 @@ public class PlayerData
         EmployeeServiceDurationLevel = 0;
         EmployeeCollectsMoney = false;
     }
-
 }

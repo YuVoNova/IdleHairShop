@@ -47,6 +47,11 @@ public class Manager : MonoBehaviour
     private string dataPath;
 
 
+    // Instantiatable Objects
+
+    public GameObject MoneyPrefab;
+
+
     // Unity Functions
 
     private void Awake()

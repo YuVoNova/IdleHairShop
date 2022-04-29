@@ -47,7 +47,7 @@ public class InteractableVending : Interactable
     {
         base.Interacted();
 
-        // TO DO -> Scatter the amount here.
+        GetComponent<MoneySpawner>().SpawnMoney(currentAmount);
 
         currentAmount = 0;
         timer = TickAmount;

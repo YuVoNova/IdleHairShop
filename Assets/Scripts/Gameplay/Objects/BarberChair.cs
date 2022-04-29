@@ -85,6 +85,8 @@ public class BarberChair : MonoBehaviour
             InteractableService.SetActive(false);
         }
 
+        GetComponent<MoneySpawner>().SpawnMoney(GameManager.Instance.CustomerYieldAmount);
+
         ServiceSpot.OccupiedBy.GetComponent<Customer>().ServiceCompleted();
 
         GameManager.Instance.LeftServiceSeat(ID);

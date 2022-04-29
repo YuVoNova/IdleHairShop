@@ -25,20 +25,17 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     private void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 9)    // Collectible
-        {
-
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

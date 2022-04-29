@@ -125,7 +125,7 @@ Transform:
   - {fileID: 6215242171073534111}
   - {fileID: 6377930779153563971}
   m_Father: {fileID: 8658260443307642299}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4354628851217775426
 GameObject:
@@ -203,6 +203,36 @@ Transform:
   m_Father: {fileID: 3926322643309540470}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6989455903371463626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1453238377055572482}
+  m_Layer: 8
+  m_Name: MoneySpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1453238377055572482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989455903371463626}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8658260443307642299}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8658260443307642296
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8658260443307642299}
   - component: {fileID: 6441026927747564229}
+  - component: {fileID: 3666381504369162036}
   - component: {fileID: 4133832767097952015}
   m_Layer: 0
   m_Name: BarberChair
@@ -234,6 +265,7 @@ Transform:
   m_Children:
   - {fileID: 1757976796112861945}
   - {fileID: 5609025282073783669}
+  - {fileID: 1453238377055572482}
   - {fileID: 3926322643309540470}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -264,6 +296,21 @@ MonoBehaviour:
   InteractableBuyChair: {fileID: 844669466290118392}
   Employee: {fileID: 0}
   SittingPoint: {fileID: 5609025282073783669}
+--- !u!114 &3666381504369162036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658260443307642296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9937a3088c5bd443a7fbc8b08a064bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPosition: {fileID: 1453238377055572482}
+  FixedSpawnAmount: 5
+  AmountModifier: 5
 --- !u!114 &4133832767097952015
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public float MoneyMultiplier;
 
+    public int CustomerYieldAmount;
+
     private int activeSpotCount;
 
     [SerializeField]
@@ -124,8 +126,8 @@ public class GameManager : MonoBehaviour
     private void FixedUpdate()
     {
         PlayerPosition = Player.transform.position;
+        PlayerPosition.y = 1f;
     }
-
 
 
 
@@ -254,5 +256,10 @@ public class GameManager : MonoBehaviour
     public void SetMoneyMultiplier()
     {
         MoneyMultiplier = Manager.Instance.Upgrades.PlayerMoneyMultiplier[Manager.Instance.PlayerData.PlayerMoneyMultiplierLevel].Value;
+    }
+
+    public void MoneyEarned(int amount)
+    {
+        Manager.Instance.PlayerData.Money += Mathf.FloorToInt(amount * MoneyMultiplier);
     }
 }

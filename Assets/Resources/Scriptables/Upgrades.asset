@@ -34,6 +34,17 @@ MonoBehaviour:
     Price: 2000
   - Value: 3
     Price: 2500
+  PlayerMoneyMultiplier:
+  - Value: 1
+    Price: 0
+  - Value: 1.25
+    Price: 1000
+  - Value: 1.5
+    Price: 1500
+  - Value: 1.75
+    Price: 2000
+  - Value: 2
+    Price: 2500
   EmployeeServiceDuration:
   - Value: 5
     Price: 0

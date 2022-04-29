@@ -30,7 +30,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5777379831236425727}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -172,6 +172,36 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!1 &5401007730549639979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4058749632983570137}
+  m_Layer: 8
+  m_Name: MoneySpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4058749632983570137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5401007730549639979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5777379831236425727}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5777379831236425720
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5777379831236425727}
   - component: {fileID: 3544227349950506654}
+  - component: {fileID: 8524623259470235174}
   - component: {fileID: 5777379831236425721}
   m_Layer: 8
   m_Name: InteractableVending
@@ -201,6 +232,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4058749632983570137}
   - {fileID: 2581337890135774680}
   - {fileID: 18903931687432675}
   m_Father: {fileID: 0}
@@ -223,6 +255,21 @@ MonoBehaviour:
   AmountText: {fileID: 8135756679663320335}
   AmountLimit: 99
   TickAmount: 0.4
+--- !u!114 &8524623259470235174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5777379831236425720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9937a3088c5bd443a7fbc8b08a064bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPosition: {fileID: 4058749632983570137}
+  FixedSpawnAmount: 5
+  AmountModifier: 5
 --- !u!65 &5777379831236425721
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -257,7 +304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5002561859641852607, guid: 56345d9f69d02f64a9fb0da35b3e0709, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5002561859641852607, guid: 56345d9f69d02f64a9fb0da35b3e0709, type: 3}
       propertyPath: m_LocalPosition.x

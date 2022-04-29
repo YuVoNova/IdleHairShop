@@ -327,3 +327,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Upgrades: {fileID: 11400000, guid: cd0bc63fedf07bd4499f86195792a663, type: 2}
+  MoneyPrefab: {fileID: 5094744635871492114, guid: a0488d7b537c0d348bbbb2cb0d76fe29, type: 3}
