@@ -176,4 +176,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.42, y: 2, z: 0.7}
-  m_Center: {x: 7.5, y: 0.16, z: 0.35}
+  m_Center: {x: 0, y: 0.16, z: 0.35}
