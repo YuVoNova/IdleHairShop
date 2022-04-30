@@ -23,6 +23,9 @@ public class BarberChair : MonoBehaviour
     private GameObject InteractableService;
 
     [SerializeField]
+    private GameObject CustomerReadyHeader;
+
+    [SerializeField]
     private InteractableBuyChair InteractableBuyChair;
 
     [SerializeField]
@@ -69,6 +72,7 @@ public class BarberChair : MonoBehaviour
         if (CurrentLevel == 2)
         {
             InteractableService.SetActive(true);
+            CustomerReadyHeader.SetActive(true);
         }
         else if (CurrentLevel == 3)
         {
@@ -83,6 +87,7 @@ public class BarberChair : MonoBehaviour
         if (CurrentLevel == 2)
         {
             InteractableService.SetActive(false);
+            CustomerReadyHeader.SetActive(false);
         }
 
         GetComponent<MoneySpawner>().SpawnMoney(GameManager.Instance.CustomerYieldAmount);

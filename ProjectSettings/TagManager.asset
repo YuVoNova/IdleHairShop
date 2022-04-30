@@ -8,6 +8,14 @@ TagManager:
   - BarberChair
   - Customer
   - Employee
+  - Slot02
+  - Slot01
+  - Slot04
+  - Slot05
+  - Slot03
+  - DropReward
+  - PinPoint
+  - clawInside
   layers:
   - Default
   - TransparentFX
@@ -22,7 +30,7 @@ TagManager:
   - PlayerWall
   - Magnet
   - Ground
-  - 
+  - InGameUI
   - 
   - 
   - 

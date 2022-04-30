@@ -15,8 +15,10 @@ public class MoneySpawner : MonoBehaviour
     private int spawnAmount;
     private int stepAmount;
 
-    private float upForce;
-    private float sideForce;
+    [SerializeField]
+    private float UpForce;
+    [SerializeField]
+    private float SideForce;
 
     private Vector3 spawnForce;
 
@@ -25,9 +27,6 @@ public class MoneySpawner : MonoBehaviour
     private void Awake()
     {
         MoneyVFX.SetActive(false);
-
-        upForce = 2.5f;
-        sideForce = 0.5f;
     }
 
     public void SpawnMoney(int amount)
@@ -49,17 +48,15 @@ public class MoneySpawner : MonoBehaviour
         spawnForce = Vector3.zero;
         for (int i = 0; i < spawnAmount; i++)
         {
-            spawnForce.x = Random.Range(-sideForce, sideForce);
-            spawnForce.y = Random.Range(upForce / 2f, upForce);
-            spawnForce.z = Random.Range(-sideForce, sideForce);
+            spawnForce.x = Random.Range(-SideForce, SideForce);
+            spawnForce.y = Random.Range(UpForce / 2f, UpForce);
+            spawnForce.z = Random.Range(-SideForce, SideForce);
 
-            if (spawnForce.x > 0) spawnForce.x += sideForce;
-            else spawnForce.x -= sideForce;
+            if (spawnForce.x > 0) spawnForce.x += SideForce;
+            else spawnForce.x -= SideForce;
 
-            if (spawnForce.z > 0) spawnForce.z += sideForce;
-            else spawnForce.z -= sideForce;
-
-            Debug.Log(spawnForce);
+            if (spawnForce.z > 0) spawnForce.z += SideForce;
+            else spawnForce.z -= SideForce;
 
             spawnedMoney = Instantiate(Manager.Instance.MoneyPrefab, SpawnPosition.position, Random.rotation);
             spawnedMoney.GetComponent<Rigidbody>().velocity = spawnForce;
