@@ -16,46 +16,47 @@ MonoBehaviour:
   - Value: 300
     Price: 0
   - Value: 325
-    Price: 1000
+    Price: 200
   - Value: 350
-    Price: 1500
+    Price: 400
   - Value: 375
-    Price: 2000
+    Price: 600
   - Value: 400
-    Price: 2500
+    Price: 800
   PlayerServiceDuration:
   - Value: 5
     Price: 0
   - Value: 4.5
-    Price: 1000
+    Price: 200
   - Value: 4
-    Price: 1500
+    Price: 400
   - Value: 3.5
-    Price: 2000
+    Price: 600
   - Value: 3
-    Price: 2500
+    Price: 800
   PlayerMoneyMultiplier:
   - Value: 1
     Price: 0
   - Value: 1.25
-    Price: 1000
+    Price: 400
   - Value: 1.5
-    Price: 1500
+    Price: 800
   - Value: 1.75
-    Price: 2000
+    Price: 1200
   - Value: 2
-    Price: 2500
+    Price: 1600
   EmployeeServiceDuration:
   - Value: 5
     Price: 0
   - Value: 4.5
-    Price: 1000
+    Price: 200
   - Value: 4
-    Price: 1500
+    Price: 400
   - Value: 3.5
-    Price: 2000
+    Price: 600
   - Value: 3
-    Price: 2500
+    Price: 800
   EmployeeCollectsMoney:
     Value: 1
-    Price: 0
+    Price: 2000
+  EmployeeHire: c8000000900100005802000020030000e8030000e8030000e8030000e8030000e8030000e8030000e8030000e8030000

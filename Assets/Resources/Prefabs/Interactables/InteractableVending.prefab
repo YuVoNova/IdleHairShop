@@ -287,8 +287,8 @@ MonoBehaviour:
   PreInteractionDuration: 1.25
   InteractionType: 0
   AmountText: {fileID: 8135756679663320335}
-  AmountLimit: 90
-  TickAmount: 0.4
+  AmountLimit: 50
+  TickAmount: 1
 --- !u!114 &8524623259470235174
 MonoBehaviour:
   m_ObjectHideFlags: 0

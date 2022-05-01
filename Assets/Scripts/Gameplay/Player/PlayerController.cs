@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
                         clickFlag = false;
                         isJoystickActive = true;
 
-                        // TO DO -> Enable walk animation here.
+                        GameManager.Instance.Player.Animate("isRunning", true);
                     }
 
                     if (delta.magnitude > clickTreshold)
@@ -84,12 +84,12 @@ public class PlayerController : MonoBehaviour
                     clickFlag = false;
                     isJoystickActive = false;
 
-                    // TO DO -> Disable walk animation here.
+                    GameManager.Instance.Player.Animate("isRunning", false);
                 }
             }
             else
             {
-                // TO DO -> Disable walk animation here.
+                GameManager.Instance.Player.Animate("isRunning", false);
 
                 direction = transform.forward;
             }

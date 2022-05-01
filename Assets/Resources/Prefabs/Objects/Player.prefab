@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7984662956495624846}
   - component: {fileID: 7984662956495624845}
   - component: {fileID: 7984662956495624844}
+  - component: {fileID: 4838514220601230061}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -49,7 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerController: {fileID: 7984662956495624846}
+  Animator: {fileID: 4838514220601230061}
   InteractionDuration: 1.5
+  IsServing: 0
 --- !u!114 &7984662956495624846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +100,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &4838514220601230061
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984662956495624840}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8446300716152722688
 GameObject:
   m_ObjectHideFlags: 0

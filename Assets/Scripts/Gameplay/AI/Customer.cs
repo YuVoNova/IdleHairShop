@@ -86,8 +86,6 @@ public class Customer : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, destinationPoint) < StopDistance)
                 {
-                    // TO DO -> Set customer's position and trigger sitting animation here.
-
                     //----------- Ogulcan Animator Denemesi ---------------
 
                     customerAnimator.SetBool("isRunning", false);
@@ -194,7 +192,6 @@ public class Customer : MonoBehaviour
         transform.position = currentOccupiedSpot.transform.parent.GetComponent<BarberChair>().ServiceSpot.transform.position;
         agent.enabled = true;
 
-        // TO DO -> Scatter money.
         //----------- Ogulcan Animator Denemesi ---------------
 
         BadHair.SetActive(false);

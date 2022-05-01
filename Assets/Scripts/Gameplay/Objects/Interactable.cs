@@ -36,8 +36,7 @@ public class Interactable : MonoBehaviour
                 {
                     hasPreInteraction = false;
 
-                    Debug.Log("Finished Pre-Interaction");
-                    Debug.Log("Started Interaction");
+                    ExitPreInteraction();
                 }
             }
         }
@@ -74,8 +73,11 @@ public class Interactable : MonoBehaviour
 
         hasPreInteraction = true;
 
-        Debug.Log("Started Pre-Interaction");
 
+    }
+
+    public virtual void ExitPreInteraction()
+    {
 
     }
 
@@ -86,15 +88,11 @@ public class Interactable : MonoBehaviour
 
         hasPreInteraction = true;
 
-        Debug.Log("Exit Interaction");
-
 
     }
 
     protected virtual void Interacted()
     {
-        Debug.Log("Interacted Base");
-
 
     }
 }

@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     // Objects & Components
 
     [SerializeField]
-    private Player Player;
+    private UIManager UIManager;
+
+    public Player Player;
 
     [SerializeField]
     private NavMeshSurface NavMeshSurface;
@@ -43,6 +45,9 @@ public class GameManager : MonoBehaviour
     private GameObject CustomerPrefab;
     [SerializeField]
     private Transform CustomersParent;
+
+    [SerializeField]
+    private GameObject BoughtBarberChairVFX;
 
 
     // Values
@@ -96,11 +101,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // TEST
-
         StartGame();
-
-        // TEST
     }
 
     private void Update()
@@ -157,12 +158,6 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         IsGameOn = true;
-
-        // TEST
-
-
-
-        // TEST
     }
 
     private void SpawnCustomer()
@@ -261,5 +256,47 @@ public class GameManager : MonoBehaviour
     public void MoneyEarned(int amount)
     {
         Manager.Instance.PlayerData.Money += Mathf.FloorToInt(amount * MoneyMultiplier);
+
+        UIManager.UpdateMoneyText();
+    }
+
+    public void SpentMoney(int amount)
+    {
+        Manager.Instance.PlayerData.Money = Mathf.FloorToInt(Mathf.Clamp(Manager.Instance.PlayerData.Money - amount, 0f, float.MaxValue));
+
+        UIManager.UpdateMoneyText();
+    }
+
+    public void BoughtBarberChair(int id)
+    {
+        Manager.Instance.PlayerData.BarberChairLevels[id] = 2;
+
+        BarberChairs[id].InitializeBarberChair(Manager.Instance.PlayerData.BarberChairLevels[id]);
+
+        EmptyServiceSeats.Add(id);
+
+        NavMeshSurface.BuildNavMesh();
+
+        GameObject vfx = Instantiate(BoughtBarberChairVFX, BarberChairs[id].transform.position, Quaternion.identity);
+        Destroy(vfx, 2f);
+
+        for (int i = 4; i >= 1; i--)
+        {
+            if (i * 3 == EmptyServiceSeats.Count + OccupiedServiceSeats.Count)
+            {
+                if (i == 4)
+                {
+                    break;
+                }
+                else
+                {
+                    for (int j = i * 3; j < i * 3 + 3; j++)
+                    {
+                        Manager.Instance.PlayerData.BarberChairLevels[j] = 1;
+                        BarberChairs[j].InitializeBarberChair(Manager.Instance.PlayerData.BarberChairLevels[j]);
+                    }
+                }
+            }
+        }
     }
 }

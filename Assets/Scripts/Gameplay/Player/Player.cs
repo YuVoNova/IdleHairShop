@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private PlayerController PlayerController;
 
+    [SerializeField]
+    private Animator Animator;
+
 
     // Values
 
@@ -15,12 +18,17 @@ public class Player : MonoBehaviour
 
     private float ServiceDuration;
 
+    [HideInInspector]
+    public bool IsServing;
+
 
     // Unity Functions
 
     private void Awake()
     {
         SetServiceDuration();
+
+        IsServing = false;
     }
 
     private void Start()
@@ -42,7 +50,19 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.layer == 8)        // Interactable
         {
-            other.GetComponent<Interactable>().StartInteraction(InteractionDuration);
+            if (other.transform.name == "InteractableService")
+            {
+                if (!IsServing)
+                {
+                    other.GetComponent<Interactable>().StartInteraction(ServiceDuration);
+
+                    IsServing = true;
+                }
+            }
+            else
+            {
+                other.GetComponent<Interactable>().StartInteraction(InteractionDuration);
+            }
         }
     }
 
@@ -51,6 +71,11 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 8)        // Interactable
         {
             other.GetComponent<Interactable>().ExitInteraction();
+
+            if (IsServing)
+            {
+                IsServing = false;
+            }
         }
     }
 
@@ -65,5 +90,10 @@ public class Player : MonoBehaviour
     public void LeveledUpPlayerWalkSpeed()
     {
         PlayerController.SetWalkSpeed();
+    }
+
+    public void Animate(string name, bool set)
+    {
+        Animator.SetBool(name, set);
     }
 }

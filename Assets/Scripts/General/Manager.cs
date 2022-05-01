@@ -98,8 +98,6 @@ public class Manager : MonoBehaviour
         InitializeSDK();
 
         InitializePlayerData();
-
-        // TO DO -> Initialize other data here.
     }
 
     private void InitializeSDK()
@@ -118,11 +116,6 @@ public class Manager : MonoBehaviour
         */
     }
 
-    private void InitializeUpgrades()
-    {
-        // TO DO -> Initialize PlayerData here.
-    }
-
     public void OnDestroy()
     {
         Save();
@@ -132,8 +125,6 @@ public class Manager : MonoBehaviour
     {
         SerializeData();
     }
-
-
 
     #region Data Handling
 

@@ -58,7 +58,7 @@ public class BarberChair : MonoBehaviour
     {
         if (level != 0)
         {
-            Levels[level].SetActive(false);
+            Levels[CurrentLevel].SetActive(false);
         }
 
         CurrentLevel = level;

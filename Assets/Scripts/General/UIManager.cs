@@ -1,10 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     // Singleton
 
     public static UIManager Instance;
+
+
+    // Money Panel
+
+    [SerializeField]
+    private TMP_Text MoneyText;
 
 
     // Player Menu
@@ -21,20 +29,27 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        UpdateMoneyText();
     }
 
     private void Start()
     {
-        
+
     }
 
     private void Update()
     {
-        
+
     }
 
 
     // Methods
+
+    public void UpdateMoneyText()
+    {
+        MoneyText.text = Manager.Instance.PlayerData.Money + "";
+    }
 
     public void EnablePlayerMenu()
     {

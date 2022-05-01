@@ -11,6 +11,8 @@ public class Upgrades : ScriptableObject
     public List<Upgrade> EmployeeServiceDuration;
     public Upgrade EmployeeCollectsMoney;
 
+    public List<int> EmployeeHire;
+
     [System.Serializable]
     public class Upgrade
     {

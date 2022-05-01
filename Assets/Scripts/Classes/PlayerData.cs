@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerData
 {
-    private const int BarberChairCount = 15;
+    private const int BarberChairCount = 12;
 
     public int Money;
 
