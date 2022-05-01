@@ -5,6 +5,9 @@ using UnityEngine;
 public class Employee : MonoBehaviour
 {
     [SerializeField]
+    private AudioSource AudioSource;
+
+    [SerializeField]
     private BarberChair EmployedChair;
 
     [SerializeField]
@@ -62,6 +65,8 @@ public class Employee : MonoBehaviour
 
                 ModelTransform.localEulerAngles = new Vector3(0f, 180f, 0f);
 
+                AudioSource.Stop();
+
                 isServiceOn = false;
             }
             else
@@ -84,6 +89,8 @@ public class Employee : MonoBehaviour
         ModelTransform.localEulerAngles = new Vector3(0f, -90f, 0f);
 
         serviceTimer = ServiceDuration;
+
+        AudioSource.Play();
 
         isServiceOn = true;
     }

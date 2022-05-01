@@ -60,6 +60,10 @@ public class GameManager : MonoBehaviour
     private int activeSpotCount;
 
     [SerializeField]
+    private float FixedCustomerSpawnDuration;
+    [SerializeField]
+    private float CustomerSpawnStep;
+
     private float customerSpawnDuration;
     private float customerSpawnTimer;
 
@@ -69,6 +73,8 @@ public class GameManager : MonoBehaviour
     public Vector3 PlayerPosition;
     [HideInInspector]
     public bool IsGameOn;
+    [HideInInspector]
+    public bool OnMenu;
 
 
     // Unity Functions
@@ -97,6 +103,10 @@ public class GameManager : MonoBehaviour
         customerID = 0;
 
         SetMoneyMultiplier();
+
+        OnMenu = false;
+
+        SetCustomerSpawnDuration();
     }
 
     private void Start()
@@ -253,11 +263,31 @@ public class GameManager : MonoBehaviour
         MoneyMultiplier = Manager.Instance.Upgrades.PlayerMoneyMultiplier[Manager.Instance.PlayerData.PlayerMoneyMultiplierLevel].Value;
     }
 
+    public void SetEmployeeServiceDurations()
+    {
+        for (int i = 0; i < BarberChairs.Count; i++)
+        {
+            BarberChairs[i].LeveledUpEmployeeServiceDuration();
+        }
+    }
+
+    public void SetEmployeeCollectsMoney()
+    {
+        for (int i = 0; i < BarberChairs.Count; i++)
+        {
+            BarberChairs[i].UnlockedEmployeeCollectsMoney();
+        }
+    }
+
     public void MoneyEarned(int amount)
     {
         Manager.Instance.PlayerData.Money += Mathf.FloorToInt(amount * MoneyMultiplier);
 
         UIManager.UpdateMoneyText();
+
+        Player.AudioSource.volume = 0.4f;
+        Player.AudioSource.clip = Manager.Instance.Audios["Money"];
+        Player.AudioSource.Play();
     }
 
     public void SpentMoney(int amount)
@@ -265,6 +295,10 @@ public class GameManager : MonoBehaviour
         Manager.Instance.PlayerData.Money = Mathf.FloorToInt(Mathf.Clamp(Manager.Instance.PlayerData.Money - amount, 0f, float.MaxValue));
 
         UIManager.UpdateMoneyText();
+
+        Player.AudioSource.volume = 0.4f;
+        Player.AudioSource.clip = Manager.Instance.Audios["Money"];
+        Player.AudioSource.Play();
     }
 
     public void BoughtBarberChair(int id)
@@ -298,5 +332,32 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        SetCustomerSpawnDuration();
+    }
+
+    public void BoughtEmployee(int id)
+    {
+        if (id != -1)
+        {
+            BarberChairs[id].InitializeBarberChair(Manager.Instance.PlayerData.BarberChairLevels[id]);
+
+            NavMeshSurface.BuildNavMesh();
+
+            if (BarberChairs[id].ServiceSpot.OccupiedBy.GetComponent<Customer>().CurrentState == CustomerStates.Waiting_Service)
+            {
+                BarberChairs[id].ReadyForService();
+            }
+        }
+        else
+        {
+            // ERROR
+            Debug.LogError("ERROR: No unemployed chair was found.");
+        }
+    }
+
+    private void SetCustomerSpawnDuration()
+    {
+        customerSpawnDuration = FixedCustomerSpawnDuration - (EmptyServiceSeats.Count + OccupiedServiceSeats.Count) * CustomerSpawnStep;
     }
 }

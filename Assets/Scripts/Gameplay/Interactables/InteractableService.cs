@@ -10,6 +10,11 @@ public class InteractableService : Interactable
         base.ExitPreInteraction();
 
         GameManager.Instance.Player.Animate("isWorking", true);
+
+        GameManager.Instance.Player.AudioSource.volume = 0.05f;
+        GameManager.Instance.Player.AudioSource.clip = Manager.Instance.Audios["Scissors"];
+        GameManager.Instance.Player.AudioSource.loop = true;
+        GameManager.Instance.Player.AudioSource.Play();
     }
 
     public override void ExitInteraction()
@@ -17,6 +22,8 @@ public class InteractableService : Interactable
         base.ExitInteraction();
 
         GameManager.Instance.Player.Animate("isWorking", false);
+
+        StopSound();
     }
 
     protected override void Interacted()
@@ -28,5 +35,13 @@ public class InteractableService : Interactable
         ChairParent.GetComponent<BarberChair>().ServiceCompleted();
 
         GameManager.Instance.Player.IsServing = false;
+
+        StopSound();
+    }
+
+    private void StopSound()
+    {
+        GameManager.Instance.Player.AudioSource.loop = false;
+        GameManager.Instance.Player.AudioSource.Stop();
     }
 }

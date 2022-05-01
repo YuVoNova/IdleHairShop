@@ -4,6 +4,8 @@ public class Interactable : MonoBehaviour
 {
     private Collider interactionCollider;
 
+    private float currentDuration;
+
     [SerializeField]
     private float PreInteractionDuration;
 
@@ -48,6 +50,8 @@ public class Interactable : MonoBehaviour
                 {
                     interactionTimer -= Time.deltaTime;
 
+                    GameManager.Instance.Player.InteractionFiller.fillAmount = 1f - (interactionTimer / currentDuration);
+
                     if (interactionTimer <= 0f)
                     {
                         Interacted();
@@ -68,17 +72,18 @@ public class Interactable : MonoBehaviour
 
     public virtual void StartInteraction(float duration)
     {
+        currentDuration = duration;
         interactionTimer = duration;
         preInteractionTimer = PreInteractionDuration;
 
         hasPreInteraction = true;
 
-
+        GameManager.Instance.Player.InteractionFiller.fillAmount = 0f;
     }
 
     public virtual void ExitPreInteraction()
     {
-
+        GameManager.Instance.Player.InteractionFiller.fillAmount = 0f;
     }
 
     public virtual void ExitInteraction()
@@ -88,11 +93,11 @@ public class Interactable : MonoBehaviour
 
         hasPreInteraction = true;
 
-
+        GameManager.Instance.Player.InteractionFiller.fillAmount = 0f;
     }
 
     protected virtual void Interacted()
     {
-
+        GameManager.Instance.Player.InteractionFiller.fillAmount = 0f;
     }
 }

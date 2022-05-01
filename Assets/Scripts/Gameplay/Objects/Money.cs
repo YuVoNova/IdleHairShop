@@ -35,7 +35,7 @@ public class Money : MonoBehaviour
 
                 transform.position = Vector3.MoveTowards(transform.position, target, 10f * Time.deltaTime);
 
-                if (Vector3.Distance(transform.position, target) < 0.2f)
+                if (Vector3.Distance(transform.position, target) < 1f)
                 {
                     GameManager.Instance.MoneyEarned(Amount);
 

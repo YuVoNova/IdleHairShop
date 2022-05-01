@@ -6,8 +6,6 @@ public class InteractablePlayerMenu : Interactable
     {
         base.Interacted();
 
-        Debug.Log("Interacted: PlayerMenu");
-
         UIManager.Instance.EnablePlayerMenu();
     }
 }

@@ -37,6 +37,8 @@ public class Manager : MonoBehaviour
 
     public Upgrades Upgrades;
 
+    public Dictionary<string, AudioClip> Audios;
+
 
     // Levels
 
@@ -98,6 +100,8 @@ public class Manager : MonoBehaviour
         InitializeSDK();
 
         InitializePlayerData();
+
+        InitializeSounds();
     }
 
     private void InitializeSDK()
@@ -114,6 +118,14 @@ public class Manager : MonoBehaviour
             FB.Init(() => { FB.ActivateApp(); });
         }
         */
+    }
+
+    private void InitializeSounds()
+    {
+        Audios = new Dictionary<string, AudioClip>();
+
+        Audios.Add("Money", Resources.Load("Sounds/Money") as AudioClip);
+        Audios.Add("Scissors", Resources.Load("Sounds/Scissors") as AudioClip);
     }
 
     public void OnDestroy()

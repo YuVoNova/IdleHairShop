@@ -1,14 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     // Objects & Components
 
     [SerializeField]
-    private PlayerController PlayerController;
+    public PlayerController PlayerController;
 
     [SerializeField]
     private Animator Animator;
+
+    public AudioSource AudioSource;
+
+    public GameObject PlayerCanvas;
+    public Image InteractionFiller;
 
 
     // Values

@@ -16,7 +16,7 @@ public class BarberChair : MonoBehaviour
     [SerializeField]
     private List<GameObject> Levels;
 
-    //[HideInInspector]
+    [HideInInspector]
     public int CurrentLevel;
 
     [SerializeField]
@@ -30,6 +30,9 @@ public class BarberChair : MonoBehaviour
 
     [SerializeField]
     private Employee Employee;
+
+    [SerializeField]
+    private AudioSource AudioSource;
 
     public Transform SittingPoint;
 
@@ -93,6 +96,8 @@ public class BarberChair : MonoBehaviour
         GetComponent<MoneySpawner>().SpawnMoney(GameManager.Instance.CustomerYieldAmount);
 
         ServiceSpot.OccupiedBy.GetComponent<Customer>().ServiceCompleted();
+
+        AudioSource.Play();
 
         GameManager.Instance.LeftServiceSeat(ID);
     }

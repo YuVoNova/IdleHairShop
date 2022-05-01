@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -45,53 +46,69 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.Instance.IsGameOn)
         {
-            if (Input.touches.Length > 0)
+            if (!GameManager.Instance.OnMenu)
             {
-                touch = Input.touches[0];
-                delta = touch.deltaPosition;
+                if (Input.touches.Length > 0)
+                {
+                    touch = Input.touches[0];
+                    delta = touch.deltaPosition;
 
-                if (touch.phase == TouchPhase.Began)
-                {
-                    clickFlag = true;
-                    isJoystickActive = false;
-                }
-                else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
-                {
-                    if (clickFlag)
+                    if (touch.phase == TouchPhase.Began)
                     {
-                        clickCenter = touch.position;
+                        clickFlag = true;
+                        isJoystickActive = false;
+                    }
+                    else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+                    {
+                        if (clickFlag)
+                        {
+                            clickCenter = touch.position;
+
+                            clickFlag = false;
+                            isJoystickActive = true;
+
+                            GameManager.Instance.Player.Animate("isRunning", true);
+                        }
+
+                        if (delta.magnitude > clickTreshold)
+                        {
+                            direction2D = touch.position - clickCenter;
+                            direction = new Vector3(direction2D.x, 0.0f, direction2D.y);
+                            direction = Vector3.Normalize(direction);
+                        }
+                    }
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        if (delta.magnitude < clickTreshold && clickFlag)
+                        {
+                            Click(touch);
+                        }
 
                         clickFlag = false;
-                        isJoystickActive = true;
+                        isJoystickActive = false;
 
-                        GameManager.Instance.Player.Animate("isRunning", true);
-                    }
-
-                    if (delta.magnitude > clickTreshold)
-                    {
-                        direction2D = touch.position - clickCenter;
-                        direction = new Vector3(direction2D.x, 0.0f, direction2D.y);
-                        direction = Vector3.Normalize(direction);
+                        GameManager.Instance.Player.Animate("isRunning", false);
                     }
                 }
-                else if (touch.phase == TouchPhase.Ended)
+                else
                 {
-                    if (delta.magnitude < clickTreshold && clickFlag)
-                    {
-                        Click(touch);
-                    }
-
-                    clickFlag = false;
-                    isJoystickActive = false;
-
                     GameManager.Instance.Player.Animate("isRunning", false);
+
+                    direction = transform.forward;
                 }
             }
             else
             {
-                GameManager.Instance.Player.Animate("isRunning", false);
+                if (Input.touches.Length > 0)
+                {
+                    touch = Input.touches[0];
 
-                direction = transform.forward;
+                    if (!EventSystem.current.IsPointerOverGameObject())
+                    {
+                        UIManager.Instance.DisableMenus();
+                        GameManager.Instance.OnMenu = false;
+                    }
+                }
             }
         }
     }

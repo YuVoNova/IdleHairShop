@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Upgrades
   m_EditorClassIdentifier: 
   PlayerWalkSpeed:
-  - Value: 300
+  - Value: 220
     Price: 0
-  - Value: 325
+  - Value: 240
     Price: 200
-  - Value: 350
+  - Value: 260
     Price: 400
-  - Value: 375
+  - Value: 280
     Price: 600
-  - Value: 400
+  - Value: 300
     Price: 800
   PlayerServiceDuration:
   - Value: 5

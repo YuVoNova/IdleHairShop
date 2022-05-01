@@ -6,8 +6,6 @@ public class InteractableEmployeeMenu : Interactable
     {
         base.Interacted();
 
-        Debug.Log("Interacted: EmployeeMenu");
-
         UIManager.Instance.EnableEmployeeMenu();
     }
 }

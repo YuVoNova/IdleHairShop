@@ -15,6 +15,8 @@ public class PlayerData
     public int EmployeeServiceDurationLevel;
     public bool EmployeeCollectsMoney;
 
+    public int EmployeeCount;
+
     public PlayerData()
     {
         Money = 0;
@@ -34,5 +36,49 @@ public class PlayerData
         PlayerMoneyMultiplierLevel = 0;
         EmployeeServiceDurationLevel = 0;
         EmployeeCollectsMoney = false;
+
+        CalculateEmployeeCount();
+    }
+
+    public void CalculateEmployeeCount()
+    {
+        EmployeeCount = 0;
+
+        for (int i = 0; i < BarberChairLevels.Length; i++)
+        {
+            if (BarberChairLevels[i] == 3) EmployeeCount++;
+        }
+    }
+
+    public int GetUnemployedChairs()
+    {
+        int count = 0;
+
+        for (int i = 0; i < BarberChairLevels.Length; i++)
+        {
+            if (BarberChairLevels[i] == 2)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public int UpgradeUnemployedBarberChair()
+    {
+        int id = -1;
+
+        for (int i = BarberChairLevels.Length - 1; i >= 0; i--)
+        {
+            if (BarberChairLevels[i] == 2)
+            {
+                BarberChairLevels[i] = 3;
+                id = i;
+                break;
+            }
+        }
+
+        return id;
     }
 }
