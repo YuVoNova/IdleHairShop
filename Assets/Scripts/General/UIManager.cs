@@ -286,5 +286,7 @@ public class UIManager : MonoBehaviour
     {
         PlayerUpgradePanel.SetActive(false);
         EmployeeUpgradePanel.SetActive(false);
+
+        GameManager.Instance.OnMenu = false;
     }
 }

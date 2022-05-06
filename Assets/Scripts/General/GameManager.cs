@@ -288,6 +288,8 @@ public class GameManager : MonoBehaviour
         Player.AudioSource.volume = 0.4f;
         Player.AudioSource.clip = Manager.Instance.Audios["Money"];
         Player.AudioSource.Play();
+
+        Manager.Instance.Save();
     }
 
     public void SpentMoney(int amount)
@@ -299,6 +301,8 @@ public class GameManager : MonoBehaviour
         Player.AudioSource.volume = 0.4f;
         Player.AudioSource.clip = Manager.Instance.Audios["Money"];
         Player.AudioSource.Play();
+
+        Manager.Instance.Save();
     }
 
     public void BoughtBarberChair(int id)

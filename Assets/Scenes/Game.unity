@@ -730,6 +730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EmployeeUpgradePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 3601931518152252910, guid: b4cb4804dd34c154f8a6c089d4fce2a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3601931518152252911, guid: b4cb4804dd34c154f8a6c089d4fce2a6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -822,6 +826,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 119582279}
+    - target: {fileID: 4595247312624271166, guid: b4cb4804dd34c154f8a6c089d4fce2a6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 119582279}
+    - target: {fileID: 4595247312624271166, guid: b4cb4804dd34c154f8a6c089d4fce2a6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisableMenus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595247312624271166, guid: b4cb4804dd34c154f8a6c089d4fce2a6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595247312624271166, guid: b4cb4804dd34c154f8a6c089d4fce2a6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4cb4804dd34c154f8a6c089d4fce2a6, type: 3}
 --- !u!224 &156342950 stripped
@@ -3655,6 +3675,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1711871064}
     m_Modifications:
+    - target: {fileID: 1904705706876918604, guid: e46c803daee25474db279918c8435cf8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 119582279}
+    - target: {fileID: 1904705706876918604, guid: e46c803daee25474db279918c8435cf8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisableMenus
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904705706876918604, guid: e46c803daee25474db279918c8435cf8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904705706876918604, guid: e46c803daee25474db279918c8435cf8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4307781679502021091, guid: e46c803daee25474db279918c8435cf8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3670,6 +3706,10 @@ PrefabInstance:
     - target: {fileID: 4307781680950174398, guid: e46c803daee25474db279918c8435cf8, type: 3}
       propertyPath: m_Name
       value: PlayerUpgradePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307781680950174398, guid: e46c803daee25474db279918c8435cf8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4307781680950174399, guid: e46c803daee25474db279918c8435cf8, type: 3}
       propertyPath: m_Pivot.x

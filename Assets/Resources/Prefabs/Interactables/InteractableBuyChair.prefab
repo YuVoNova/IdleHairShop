@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c65563afdca6ee45949b8a410087845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PreInteractionDuration: 1.5
+  Duration: 0
+  PreInteractionDuration: 1
   InteractionType: 1
-  Duration: 0.05
   PriceText: {fileID: 3107106204386571995}
 --- !u!1 &3293494825164477073
 GameObject:

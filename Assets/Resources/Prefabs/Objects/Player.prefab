@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 7984662956495624841}
   - component: {fileID: 7984662956495624847}
   - component: {fileID: 7984662956495624846}
+  - component: {fileID: 7500865812939327177}
   - component: {fileID: 7984662956495624845}
   - component: {fileID: 7984662956495624844}
   - component: {fileID: 4838514220601230061}
@@ -240,11 +241,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerController: {fileID: 7984662956495624846}
+  MoneyFlower: {fileID: 7500865812939327177}
   Animator: {fileID: 4838514220601230061}
   AudioSource: {fileID: 517764291432863092}
   PlayerCanvas: {fileID: 7165008667675466521}
   InteractionFiller: {fileID: 500597709321858307}
-  InteractionDuration: 1.5
   IsServing: 0
 --- !u!114 &7984662956495624846
 MonoBehaviour:
@@ -264,6 +265,21 @@ MonoBehaviour:
   clickFlag: 0
   isJoystickActive: 0
   MovementSpeed: 100
+--- !u!114 &7500865812939327177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984662956495624840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4481765bd5debf4a96754b5a5cb9d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlowMoneyPrefab: {fileID: 7810821288803503375, guid: dd84f8cc810f21d47863d4f75f308ff3, type: 3}
+  SpawnDuration: 0.1
+  TargetTransform: {fileID: 0}
 --- !u!54 &7984662956495624845
 Rigidbody:
   m_ObjectHideFlags: 0

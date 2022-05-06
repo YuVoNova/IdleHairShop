@@ -5,8 +5,9 @@ public class Player : MonoBehaviour
 {
     // Objects & Components
 
-    [SerializeField]
     public PlayerController PlayerController;
+
+    public MoneyFlower MoneyFlower;
 
     [SerializeField]
     private Animator Animator;
@@ -18,9 +19,6 @@ public class Player : MonoBehaviour
 
 
     // Values
-
-    [SerializeField]
-    private float InteractionDuration;
 
     private float ServiceDuration;
 
@@ -67,7 +65,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                other.GetComponent<Interactable>().StartInteraction(InteractionDuration);
+                other.GetComponent<Interactable>().StartInteraction(0f);
             }
         }
     }

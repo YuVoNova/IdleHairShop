@@ -11,8 +11,18 @@ public class InteractableVending : Interactable
     private int currentAmount;
 
     [SerializeField]
+    private int Step;
+    private int payValue;
+
+    [SerializeField]
     private float TickAmount;
     private float timer;
+
+    [SerializeField]
+    private float PayDuration;
+    private float payTimer;
+
+    private bool isInteracting;
 
     protected override void Awake()
     {
@@ -20,39 +30,93 @@ public class InteractableVending : Interactable
 
         currentAmount = 0;
         timer = 0f;
+        payTimer = 0f;
+
+        isInteracting = false;
     }
 
     protected override void Update()
     {
         base.Update();
 
-        if (currentAmount < AmountLimit)
+        if (!isInteracting)
         {
-            if (timer <= 0f)
+            if (currentAmount < AmountLimit)
             {
-                currentAmount = Mathf.FloorToInt(Mathf.Clamp(currentAmount + 1, 0f, AmountLimit));
+                if (timer <= 0f)
+                {
+                    currentAmount = Mathf.FloorToInt(Mathf.Clamp(currentAmount + 1, 0f, AmountLimit));
 
-                UpdateText();
+                    UpdateText();
 
-                timer = TickAmount;
-            }
-            else
-            {
-                timer -= Time.deltaTime;
+                    timer = TickAmount;
+                }
+                else
+                {
+                    timer -= Time.deltaTime;
+                }
             }
         }
     }
 
-    protected override void Interacted()
+    protected override void ProgressInteraction()
     {
-        base.Interacted();
+        base.ProgressInteraction();
 
-        GetComponent<MoneySpawner>().SpawnMoney(currentAmount);
+        if (isInteracting)
+        {
+            if (payTimer <= 0f)
+            {
+                if (currentAmount > 0)
+                {
+                    if (Step > currentAmount)
+                    {
+                        payValue = currentAmount;
+                    }
+                    else
+                    {
+                        payValue = Step;
+                    }
 
-        currentAmount = 0;
-        timer = TickAmount;
+                    currentAmount -= payValue;
+                    UpdateText();
 
-        UpdateText();
+                    GameManager.Instance.MoneyEarned(payValue);
+
+                    if (currentAmount == 0)
+                    {
+                        GameManager.Instance.Player.MoneyFlower.EndFlow();
+                        isInteracting = false;
+                    }
+                }
+                else
+                {
+                    GameManager.Instance.Player.MoneyFlower.EndFlow();
+                    isInteracting = false;
+                }
+
+                payTimer = PayDuration;
+            }
+            else
+            {
+                payTimer -= Time.deltaTime;
+            }
+        }
+    }
+
+    public override void ExitPreInteraction()
+    {
+        base.ExitPreInteraction();
+
+        GameManager.Instance.Player.MoneyFlower.StartFlow(transform, GameManager.Instance.Player.transform);
+        isInteracting = true;
+    }
+
+    public override void ExitInteraction()
+    {
+        base.ExitInteraction();
+
+        isInteracting = false;
     }
 
     private void UpdateText()

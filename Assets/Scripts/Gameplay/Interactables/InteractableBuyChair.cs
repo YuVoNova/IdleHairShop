@@ -4,65 +4,70 @@ using TMPro;
 public class InteractableBuyChair : Interactable
 {
     [SerializeField]
-    private float Duration;
-
-    [SerializeField]
     private TMP_Text PriceText;
 
     private int price;
     private int payValue;
     private int step;
 
-    private float timer;
-
     protected override void Awake()
     {
         base.Awake();
+    }
 
-        timer = 0f;
+    public override void ExitPreInteraction()
+    {
+        base.ExitPreInteraction();
+
+        GameManager.Instance.Player.MoneyFlower.StartFlow(GameManager.Instance.Player.transform, transform);
+    }
+
+    public override void ExitInteraction()
+    {
+        base.ExitInteraction();
+
+        GameManager.Instance.Player.MoneyFlower.EndFlow();
     }
 
     protected override void ProgressInteraction()
     {
         base.ProgressInteraction();
 
-        if (timer <= 0f)
+        if (Manager.Instance.PlayerData.Money > 0)
         {
-            if (Manager.Instance.PlayerData.Money > 0)
+            if (price != 0)
             {
-                if (price != 0)
+                if (Manager.Instance.PlayerData.Money >= step)
                 {
-                    if (Manager.Instance.PlayerData.Money >= step)
+                    payValue = Mathf.FloorToInt(Mathf.Clamp(step, 0f, price));
+                }
+                else
+                {
+                    if (Manager.Instance.PlayerData.Money >= price)
                     {
-                        payValue = Mathf.FloorToInt(Mathf.Clamp(step, 0f, price));
+                        payValue = price;
                     }
                     else
                     {
-                        if (Manager.Instance.PlayerData.Money >= price)
-                        {
-                            payValue = price;
-                        }
-                        else
-                        {
-                            payValue = Manager.Instance.PlayerData.Money;
-                        }
+                        payValue = Manager.Instance.PlayerData.Money;
                     }
+                }
 
-                    price = Mathf.FloorToInt(Mathf.Clamp(price - payValue, 0f, float.MaxValue));
-                    PriceText.text = price + "";
+                price = Mathf.FloorToInt(Mathf.Clamp(price - payValue, 0f, float.MaxValue));
+                PriceText.text = price + "";
 
-                    GameManager.Instance.SpentMoney(payValue);
+                GameManager.Instance.SpentMoney(payValue);
 
-                    if (price == 0)
-                    {
-                        GameManager.Instance.BoughtBarberChair(transform.parent.parent.parent.GetComponent<BarberChair>().ID);
-                    }
+                if (price == 0)
+                {
+                    GameManager.Instance.Player.MoneyFlower.EndFlow();
+                    GameManager.Instance.BoughtBarberChair(transform.parent.parent.parent.GetComponent<BarberChair>().ID);
                 }
             }
         }
         else
         {
-            timer -= Time.deltaTime;
+            GameManager.Instance.Player.MoneyFlower.EndFlow();
         }
     }
 

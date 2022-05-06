@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    private Collider interactionCollider;
-
-    private float currentDuration;
+    [SerializeField]
+    private float Duration;
 
     [SerializeField]
     private float PreInteractionDuration;
+
+    private Collider interactionCollider;
+
+    private float currentDuration;
 
     private bool hasPreInteraction;
 
@@ -72,8 +75,17 @@ public class Interactable : MonoBehaviour
 
     public virtual void StartInteraction(float duration)
     {
-        currentDuration = duration;
-        interactionTimer = duration;
+        if (duration > 0.1f)
+        {
+            currentDuration = duration;
+            interactionTimer = duration;
+        }
+        else
+        {
+            currentDuration = Duration;
+            interactionTimer = Duration;
+        }
+
         preInteractionTimer = PreInteractionDuration;
 
         hasPreInteraction = true;

@@ -75,6 +75,11 @@ public class Manager : MonoBehaviour
         Save();
     }
 
+    private void OnDestroy()
+    {
+        Save();
+    }
+
     private void OnApplicationPause(bool pause)
     {
         /*
@@ -126,11 +131,6 @@ public class Manager : MonoBehaviour
 
         Audios.Add("Money", Resources.Load("Sounds/Money") as AudioClip);
         Audios.Add("Scissors", Resources.Load("Sounds/Scissors") as AudioClip);
-    }
-
-    public void OnDestroy()
-    {
-        Save();
     }
 
     public void Save()

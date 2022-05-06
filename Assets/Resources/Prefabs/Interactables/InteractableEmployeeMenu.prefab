@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd613e40996de254096f8b5ed6904991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PreInteractionDuration: 0.5
+  Duration: 0.5
+  PreInteractionDuration: 0.25
   InteractionType: 0
 --- !u!65 &1465398175725773859
 BoxCollider:

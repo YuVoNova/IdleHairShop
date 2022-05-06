@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float MovementSpeed;
 
+    private int myMask;
+
 
     private void Awake()
     {
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
         isJoystickActive = false;
 
         SetWalkSpeed();
+
+        myMask = LayerMask.GetMask("UI");
     }
 
     private void Update()
@@ -99,16 +103,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if (Input.touches.Length > 0)
-                {
-                    touch = Input.touches[0];
 
-                    if (!EventSystem.current.IsPointerOverGameObject())
-                    {
-                        UIManager.Instance.DisableMenus();
-                        GameManager.Instance.OnMenu = false;
-                    }
-                }
             }
         }
     }
