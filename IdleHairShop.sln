@@ -77,6 +77,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponentsTestsEditm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponentsEditor", "NavMeshComponentsEditor.csproj", "{9080276D-2669-2062-3437-F146DCC3392D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{530C31A7-500C-5E19-EF27-5B4F53A394E9}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.UI", "UnityEngine.UI.Player.csproj", "{DBD85D6B-0A95-544E-C8CC-86844856EFEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Core.Runtime", "Unity.RenderPipelines.Core.Runtime.Player.csproj", "{8A28CB21-7822-E1B1-EE06-6D9BB6968050}"
@@ -269,6 +271,10 @@ Global
 		{9080276D-2669-2062-3437-F146DCC3392D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9080276D-2669-2062-3437-F146DCC3392D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9080276D-2669-2062-3437-F146DCC3392D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530C31A7-500C-5E19-EF27-5B4F53A394E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530C31A7-500C-5E19-EF27-5B4F53A394E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530C31A7-500C-5E19-EF27-5B4F53A394E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530C31A7-500C-5E19-EF27-5B4F53A394E9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DBD85D6B-0A95-544E-C8CC-86844856EFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DBD85D6B-0A95-544E-C8CC-86844856EFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBD85D6B-0A95-544E-C8CC-86844856EFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU

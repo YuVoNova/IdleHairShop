@@ -1,11 +1,8 @@
-using System;
 using System.IO;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-//using GameAnalyticsSDK;
-//using Facebook.Unity;
+using GameAnalyticsSDK;
+using Facebook.Unity;
 
 public class Manager : MonoBehaviour
 {
@@ -38,10 +35,6 @@ public class Manager : MonoBehaviour
     public Upgrades Upgrades;
 
     public Dictionary<string, AudioClip> Audios;
-
-
-    // Levels
-
 
 
     // Data Handling
@@ -82,7 +75,6 @@ public class Manager : MonoBehaviour
 
     private void OnApplicationPause(bool pause)
     {
-        /*
         if (!pause)
         {
             if (FB.IsInitialized)
@@ -94,7 +86,6 @@ public class Manager : MonoBehaviour
                 FB.Init(() => { FB.ActivateApp(); });
             }
         }
-        */
     }
 
 
@@ -111,7 +102,6 @@ public class Manager : MonoBehaviour
 
     private void InitializeSDK()
     {
-        /*
         GameAnalytics.Initialize();
 
         if (FB.IsInitialized)
@@ -122,7 +112,6 @@ public class Manager : MonoBehaviour
         {
             FB.Init(() => { FB.ActivateApp(); });
         }
-        */
     }
 
     private void InitializeSounds()
